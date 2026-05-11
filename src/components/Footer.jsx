@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa'
-import { motion } from 'motion/react'
+import { motion } from 'framer-motion'
 
 const Footer = () => {
     return (

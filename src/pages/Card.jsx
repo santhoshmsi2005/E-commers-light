@@ -1,6 +1,6 @@
-import { data } from 'autoprefixer'
 import React, { useEffect, useState } from 'react'
-import { motion } from 'motion/react'
+import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 
 const CardDesign = (props) => {
     return (
@@ -16,9 +16,13 @@ const CardDesign = (props) => {
                     <p>⭐⭐⭐⭐⭐{props.rating}</p>
                     <p>Rating Count: {props.count}</p>
                 </div>
-                <div className='flex flex-col md:flex-row items-center gap-4 w-full'>
-                    <button className='w-full whitespace-nowrap bg-black px-5 py-2 rounded-full text-white hover:bg-orange-500'>Add To Cart</button>
-                    <button className='w-full whitespace-nowrap bg-black px-5 py-2 rounded-full text-white hover:bg-orange-500' >Buy Now</button>
+                <div className='flex flex-col justify-center md:flex-row items-center gap-4 w-full'>
+                    <Link >
+                        <button className='w-full whitespace-nowrap bg-black px-5 py-2 rounded-full text-white hover:bg-orange-500'>Add To Cart</button>
+                    </Link>
+                    <Link to={`/productsDetail/${props.id}`} >
+                        <button className='w-full whitespace-nowrap bg-black px-5 py-2 rounded-full text-white hover:bg-orange-500' >View Details</button>
+                    </Link>
                 </div>
             </div>
         </div>
@@ -58,6 +62,7 @@ const Card = () => {
                                 transition={{ duration: 0.50, delay: 0.2 }}
                                 key={index} className='flex'>
                                 <CardDesign
+                                    id={item.id}
                                     title={item.title}
                                     price={item.price}
                                     image={item.image}
